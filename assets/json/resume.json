@@ -4,23 +4,7 @@
     "label": "Ph.D. Candidate",
     "image": "",
     "email": "gwendal.beaumont@imt-atlantique.fr",
-    "phone": "+33 (0)2 29 00 15 05",
-    "url": "https://Gwendal-Beaumont.github.io/",
-    "summary": "Gratuated in Computer Science Engineering in 2023, I now pursue a PhD in the field of Digital Twins and DevOps.",
-    "location": {
-      "address": "Technopôle Brest-Iroise, CS 83818",
-      "postalCode": "29238",
-      "city": "Brest Cedex 03",
-      "countryCode": "FR",
-      "region": "Brittany"
-    },
-    "profiles": [
-      {
-        "network": "LinkedIn",
-        "username": "gwendal-beaumont",
-        "url": "https://linkedin.com/gwendal-beaumont"
-      }
-    ]
+    "summary": "Gratuated in Computer Science Engineering in 2023, I now pursue a Ph.D. in the field of Digital Twins and DevOps."
   },
   "work": [
     {
