@@ -14,7 +14,11 @@
       "startDate": "2022-05-02",
       "endDate": "2023-08-19",
       "summary": "Internship as an assistant in the preparation of a master thesis on the effect of errors in agent-based simulation systems.",
-      "highlights": ["State of the art on the topic of errors representation in computer simulation", "Creation of a simulation framework in Python to take errors into account", "Creation of multiple agent-based simulation in Python to test our framework"]
+      "highlights": [
+        "State of the art on the topic of errors representation in computer simulation",
+        "Creation of a simulation framework in Python to take errors into account",
+        "Creation of multiple agent-based simulation in Python to test our framework"
+      ]
     },
     {
       "name": "ALTEN Labs, Rennes, FR",
@@ -79,7 +83,7 @@
     }
   ],
   "certificates": [
-   {
+    {
       "name": "T.O.E.I.C. (975/990)",
       "date": "2020-11-09",
       "issuer": "ETS Global",
@@ -127,25 +131,13 @@
       "name": "Coding",
       "level": "",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "C/C++",
-        "Dart",
-        "Java",
-        "JavaScript",
-        "Python",
-        "TypeScript"
-      ]
+      "keywords": ["C/C++", "Dart", "Java", "JavaScript", "Python", "TypeScript"]
     },
     {
       "name": "Infra",
       "level": "",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Linux",
-        "Docker",
-        "Network",
-        "SQL"
-      ]
+      "keywords": ["Linux", "Docker", "Network", "SQL"]
     }
   ],
   "languages": [
