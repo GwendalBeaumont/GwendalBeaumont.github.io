@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
+title: Teaching
 description: Teaching experience earned throught the years
 nav: true
 nav_order: 3
@@ -9,7 +9,7 @@ nav_order: 3
 
 <!-- _pages/teaching.md -->
 
-Teaching experience summary table. A more refined explaination of each entry can be found below.
+Below is a teaching experience summary table. More details about each entry are given below this table.
 
 |Year|Course|Academic Level|Institution|Hours|Type|
 |-|-|-|-|-|-|
