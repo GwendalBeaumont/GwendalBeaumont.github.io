@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /
 
-Sitemap: https://Gwendal-Beaumont.github.io/sitemap.xml
+Sitemap: https://GwendalBeaumont.github.io/sitemap.xml
