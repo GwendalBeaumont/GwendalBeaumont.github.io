@@ -1,7 +1,7 @@
 github_users:
-  - Gwendal-Beaumont
+  - GwendalBeaumont
 
 github_repos:
-  - Gwendal-Beaumont/TwinCobot-ALS-Docker
-  - Gwendal-Beaumont/DT_ALS_GUI
-  - Gwendal-Beaumont/nix-configuration
+  - GwendalBeaumont/DT-Mining
+  - GwendalBeaumont/TwinCobot-ALS-Docker
+  - GwendalBeaumont/DT_ALS_GUI
