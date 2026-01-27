@@ -131,13 +131,13 @@
       "name": "Coding",
       "level": "",
       "icon": "fa-solid fa-hashtag",
-      "keywords": ["C/C++", "Dart", "Java", "JavaScript", "Python", "TypeScript"]
+      "keywords": ["C/C++", "Java", "JavaScript", "Python", "TypeScript"]
     },
     {
       "name": "Infra",
       "level": "",
       "icon": "fa-solid fa-hashtag",
-      "keywords": ["Linux", "Docker", "Network", "SQL"]
+      "keywords": ["Linux", "Docker", "Network"]
     }
   ],
   "languages": [
