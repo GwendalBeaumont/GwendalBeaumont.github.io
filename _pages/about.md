@@ -20,4 +20,4 @@ I am a Ph.D. Student at IMT Atlantique, advised by [Prof. Antoine Beugnard](http
 
 I obtained a **General Engineering degree** (with a speciality in **Software Engineering**) from IMT Mines Alès in 2023. Before that, I published three co-authored papers in the fields of **Agent-Based Modeling** and **Machine Learning** under the supervision of [Assoc. Prof. Philippe J. Giabbanelli](https://scholar.google.ca/citations?user=7YilOHoAAAAJ&hl=en).
 
-Public GPG key: the key related to my academic email can be found [here](https://gwendal-beaumont.github.io/gpg_imt_atlantique_fr/).
+Public GPG key: the key related to my academic email can be found [here](https://gwendalbeaumont.fr/gpg_imt_atlantique_fr/).
