@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: IMT Atlantique - <a href='https://labsticc.fr/'>Lab-STICC, CNRS, UMR 6285</a> • Brest, FR • gwendal.beaumont@imt-atlantique.fr
+subtitle: IMT Atlantique - <a href='https://labsticc.fr/'>Lab-STICC, CNRS, UMR 6285</a> • Brest, FR • contact@gwendalbeaumont.fr
 
 profile:
   align: right
@@ -16,8 +16,8 @@ social: true # includes social icons at the bottom of the page
 
 Hello all! 👋
 
-I am a Ph.D. Student at IMT Atlantique, advised by [Prof. Antoine Beugnard](https://cv.hal.science/antoine-beugnard), [Assoc. Prof. Sylvain Vauttier](https://cv.hal.science/sylvainvauttier), [Assoc. Prof. Salvador Martinez](https://cv.hal.science/salvador-martinez-perez) and [Prof. Christelle Urtado](https://cv.hal.science/christelleurtado). My **research interests** lie in **Digital Twins** and **Model-Driven Engineering (MDE)**. My contributions mainly focus on automating the deployment and the life cycle management of Digital Twins leveraging MDE and GitOps, an implementation of DevOps centered around [Git](https://git-scm.com/).
+I am a Ph.D. Candidate at IMT Atlantique, advised by [Prof. Antoine Beugnard](https://cv.hal.science/antoine-beugnard), [Assoc. Prof. Sylvain Vauttier](https://cv.hal.science/sylvainvauttier), [Assoc. Prof. Salvador Martinez](https://cv.hal.science/salvador-martinez-perez) and [Prof. Christelle Urtado](https://cv.hal.science/christelleurtado). My research interests lie in **Digital Twins** and **Model-Driven Engineering (MDE)**. My contributions mainly focus on automating the deployment and the life cycle management of Digital Twins leveraging MDE and GitOps, an implementation of DevOps centered around [Git](https://git-scm.com/).
 
-I obtained a **General Engineering degree** (with a speciality in **Software Engineering**) from IMT Mines Alès in 2023. Before that, I published three co-authored papers in the fields of **Agent-Based Modeling** and **Machine Learning** under the supervision of [Assoc. Prof. Philippe J. Giabbanelli](https://scholar.google.ca/citations?user=7YilOHoAAAAJ&hl=en).
+Before that, I obtained a **General Engineer's degree** (with a speciality in **Software Engineering**) from IMT Mines Alès in 2023. During engineering school, I published three co-authored papers in the fields of **Agent-Based Modelling** and **Machine Learning** under the supervision of [Assoc. Prof. Philippe J. Giabbanelli](https://scholar.google.ca/citations?user=7YilOHoAAAAJ&hl=en).
 
 Public GPG key: the key related to my academic email can be found [here](https://gwendalbeaumont.fr/gpg_imt_atlantique_fr/).
