@@ -12,7 +12,7 @@ nav_order: 3
 Below is a teaching experience summary table. More details about each entry are given below this table.
 
 | Year      | Course                                             | Academic Level | Institution    | Hours  | Type            |
-|-----------|----------------------------------------------------|----------------|----------------|--------|-----------------|
+| --------- | -------------------------------------------------- | -------------- | -------------- | ------ | --------------- |
 | 2025-2026 | Software Development                               | Master 1       | IMT Atlantique | 2.5h   | TP/TD           |
 | 2024-2025 | Concurrent computing (FSP + Java)                  | Master 1       | IMT Atlantique | 16.25h | TP/TD + Exam    |
 | 2024-2025 | Algorithm (Python)                                 | License 3      | IMT Atlantique | 10h    | TP/TD           |
