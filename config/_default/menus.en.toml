@@ -17,5 +17,5 @@
 
 [[main]]
   name = "CV"
-  url = "https://gwendalbeaumont.fr/assets/pdf/curriculum_vitae.pdf"
+  url = "/curriculum_vitae.pdf"
   weight = 50
