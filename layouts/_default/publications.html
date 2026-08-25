@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article class="prose max-w-none">
+  <h1>{{ .Title }}</h1>
+
+  {{ $content := .Content }}
+  {{ range readDir "static/pdf/papers" }}
+    {{ $key := strings.TrimSuffix ".pdf" .Name }}
+    {{ $badgeHTML := partial "badge.html" "PDF" }}
+    {{ $badge := printf `<a href="/pdf/papers/%s.pdf" target="_blank">%s</a>` $key $badgeHTML }}
+    {{ $content = $content | replaceRE
+         (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
+         (printf `$1<div class="pub-links">%s</div>$2` $badge) }}
+  {{ end }}
+
+  {{ $content | safeHTML }}
+</article>
+{{ end }}
