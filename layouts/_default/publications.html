@@ -1,17 +1,33 @@
 {{ define "main" }}
-<article class="prose max-w-none">
-  <h1>{{ .Title }}</h1>
+<article>
+  {{/* Header */}}
+    <header id="single_header" class="mt-5 max-w-prose">
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+      </div>
+    </header>
 
-  {{ $content := .Content }}
-  {{ range readDir "static/pdf/papers" }}
-    {{ $key := strings.TrimSuffix ".pdf" .Name }}
-    {{ $badgeHTML := partial "badge.html" "PDF" }}
-    {{ $badge := printf `<a href="/pdf/papers/%s.pdf" target="_blank">%s</a>` $key $badgeHTML }}
-    {{ $content = $content | replaceRE
-         (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
-         (printf `$1<div class="pub-links">%s</div>$2` $badge) }}
-  {{ end }}
+  {{/* Body */}}
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      <div class="min-w-0 min-h-0 max-w-fit">
+        {{ partial "series/series.html" . }}
+        <div class="article-content max-w-prose mb-20">
+          {{ $content := .Content }}
+          {{ range readDir "static/pdf/papers" }}
+            {{ $key := strings.TrimSuffix ".pdf" .Name }}
+            {{ $badgeHTML := partial "badge.html" "PDF" }}
+            {{ $badge := printf `<a href="/pdf/papers/%s.pdf" target="_blank">%s</a>` $key $badgeHTML }}
+            {{ $content = $content | replaceRE
+            (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
+            (printf `$1<div class="pub-links">%s</div>$2` $badge) }}
+          {{ end }}
 
-  {{ $content | safeHTML }}
+          {{ $content | safeHTML }}
+        </div>
+      </div>
+    </section>
 </article>
 {{ end }}
