@@ -1,0 +1,16 @@
+---
+date: '2026-08-24T14:08:44+02:00'
+draft: false
+title: Publications
+showDate: false
+showReadingTime: false
+showTableOfContents: false
+showComments: false
+---
+
+---
+bibliography: bibliography/publications.bib
+csl: bibliography/chicago-author-date.csl
+link-citations: true
+nocite: "@*"
+---
