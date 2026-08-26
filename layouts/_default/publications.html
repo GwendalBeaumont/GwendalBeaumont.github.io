@@ -16,16 +16,15 @@
         {{ partial "series/series.html" . }}
         <div class="article-content max-w-prose mb-20">
           {{ $content := .Content }}
-          {{ range readDir "static/pdf/papers" }}
-            {{ $key := strings.TrimSuffix ".pdf" .Name }}
-            {{ $badgeHTML := partial "badge.html" "PDF" }}
-            {{ $badge := printf `<a href="/pdf/papers/%s.pdf" target="_blank">%s</a>` $key $badgeHTML }}
-            {{ $content = $content | replaceRE
-            (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
-            (printf `$1<div class="pub-links">%s</div>$2` $badge) }}
-          {{ end }}
+            {{ range readDir "static/pdf/papers" }}
+              {{ $key := strings.TrimSuffix ".pdf" .Name }}
+              {{ $badge := printf `<a href="/pdf/papers/%s.pdf" target="_blank" role="button" class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700">PDF</a>` $key }}
+              {{ $content = $content | replaceRE
+                  (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
+                  (printf `$1<div class="pub-links">%s</div>$2` $badge) }}
+            {{ end }}
 
-          {{ $content | safeHTML }}
+            {{ $content | safeHTML }}
         </div>
       </div>
     </section>
