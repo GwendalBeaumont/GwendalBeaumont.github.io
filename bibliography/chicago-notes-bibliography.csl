@@ -438,7 +438,7 @@
   <!-- 1. Author (CMOS18 13.74-86) -->
   <macro name="author-bib">
     <names variable="composer">
-      <name and="text" delimiter-precedes-last="always" initialize="false" name-as-sort-order="first"/>
+      <name and="text" initialize="false"/>
       <label form="short" prefix=", "/>
       <substitute>
         <names variable="author"/>

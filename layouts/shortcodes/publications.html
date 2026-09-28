@@ -1,0 +1,27 @@
+{{- $page := .Page -}}
+{{- $bib := .Get "bib" | default "bibliography/publications.bib" -}}
+{{- $csl := .Get "csl" | default "bibliography/chicago-notes-bibliography.csl" -}}
+{{- $pdfDir := .Get "pdfdir" | default "static/pdf/papers" -}}
+{{- $pdfURL := .Get "pdfurl" | default "/pdf/papers" -}}
+
+{{/* All entries by default, or a subset: keys="key1,key2" */}}
+{{- $nocite := "@*" -}}
+{{- with .Get "keys" -}}
+  {{- $nocite = printf "@%s" (replaceRE ` *, *` ", @" .) -}}
+{{- end -}}
+
+{{- $meta := printf "---\nbibliography: %s\ncsl: %s\nlink-citations: true\nnocite: \"%s\"\n---\n" $bib $csl $nocite -}}
+{{- $html := $page.RenderString (dict "markup" "pandoc" "display" "block") $meta -}}
+{{- with .Get "me" -}}
+  {{- $html = $html | replaceRE (printf `(%s)` .) `<span class="pub-me">${1}</span>` -}}
+{{- end -}}
+
+{{- range readDir $pdfDir -}}
+  {{- $key := strings.TrimSuffix ".pdf" .Name -}}
+  {{- $btn := printf `<a href="%s/%s.pdf" target="_blank" role="button" class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700">PDF</a>` $pdfURL $key -}}
+  {{- $html = $html | replaceRE
+        (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
+        (printf `$1<div class="pub-links">%s</div>$2` $btn) -}}
+{{- end -}}
+
+{{ $html | safeHTML }}

@@ -18,3 +18,9 @@
   display: block;
   margin-top: 0.75rem;
 }
+
+.pub-me {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
