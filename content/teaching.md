@@ -7,7 +7,6 @@ title = 'Teaching'
 showReadingTime = false
 showComments = false
 showDate = false
-showTableOfContents = true
 +++
 
 The following table summarises my teaching experience, followed by a more detailed breakdown of each module.
