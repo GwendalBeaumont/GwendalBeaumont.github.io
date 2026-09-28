@@ -4,14 +4,33 @@
 {{- $pdfDir := .Get "pdfdir" | default "static/pdf/papers" -}}
 {{- $pdfURL := .Get "pdfurl" | default "/pdf/papers" -}}
 
-{{/* All entries by default, or a subset: keys="key1,key2" */}}
 {{- $nocite := "@*" -}}
 {{- with .Get "keys" -}}
   {{- $nocite = printf "@%s" (replaceRE ` *, *` ", @" .) -}}
 {{- end -}}
 
 {{- $meta := printf "---\nbibliography: %s\ncsl: %s\nlink-citations: true\nnocite: \"%s\"\n---\n" $bib $csl $nocite -}}
-{{- $html := $page.RenderString (dict "markup" "pandoc" "display" "block") $meta -}}
+{{- $html := string ($page.RenderString (dict "markup" "pandoc" "display" "block") $meta) -}}
+
+{{- $groups := newScratch -}}
+{{- $years := slice -}}
+{{- range findRE `(?s)<div id="ref-[^"]*"[^>]*>.*?</div>` $html -}}
+  {{- $year := "Other" -}}
+  {{- with findRESubmatch `id="ref-[^"]*_(\d{4})"` . 1 -}}
+    {{- $year = index . 0 1 -}}
+  {{- end -}}
+  {{- if not ($groups.Get $year) -}}
+    {{- $years = $years | append $year -}}
+  {{- end -}}
+  {{- $groups.Add $year . -}}
+{{- end -}}
+
+{{- $out := "" -}}
+{{- range sort $years "value" "desc" -}}
+  {{- $out = printf `%s<h2 id="year-%s">%s</h2><div class="pub-year">%s</div>` $out . . ($groups.Get .) -}}
+{{- end -}}
+{{- $html = $out -}}
+
 {{- with .Get "me" -}}
   {{- $html = $html | replaceRE (printf `(%s)` .) `<span class="pub-me">${1}</span>` -}}
 {{- end -}}
