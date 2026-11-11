@@ -1,0 +1,69 @@
+{{- $page := .Page -}}
+{{- $bib := .Get "bib" | default "bibliography/publications.bib" -}}
+{{- $csl := .Get "csl" | default "bibliography/chicago-notes-bibliography.csl" -}}
+{{- $pdfDir := .Get "pdfdir" | default "static/pdf/papers" -}}
+{{- $pdfURL := .Get "pdfurl" | default "/pdf/papers" -}}
+
+{{- $nocite := "@*" -}}
+{{- with .Get "keys" -}}
+  {{- $nocite = printf "@%s" (replaceRE ` *, *` ", @" .) -}}
+{{- end -}}
+
+{{- $meta := printf "---\nbibliography: %s\ncsl: %s\nlink-citations: true\nnocite: \"%s\"\n---\n" $bib $csl $nocite -}}
+{{- $html := string ($page.RenderString (dict "markup" "pandoc" "display" "block") $meta) -}}
+
+{{- $typeLabels := dict
+      "inproceedings" "C"
+      "article" "J"
+      "incollection" "B"
+      "phdthesis" "T"
+      "misc" "O"
+-}}
+{{- $types := newScratch -}}
+{{- with try (os.ReadFile $bib) -}}
+  {{- with .Value -}}
+    {{- range findRESubmatch `@(\w+)\{\s*([^,\s]+)\s*,` . -}}
+      {{- $types.Set (index . 2) (index . 1) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $groups := newScratch -}}
+{{- $years := slice -}}
+{{- range findRE `(?s)<div id="ref-[^"]*"[^>]*>.*?</div>` $html -}}
+  {{- $year := "Other" -}}
+  {{- with findRESubmatch `id="ref-[^"]*_(\d{4})"` . 1 -}}
+    {{- $year = index . 0 1 -}}
+  {{- end -}}
+  {{- if not ($groups.Get $year) -}}
+    {{- $years = $years | append $year -}}
+  {{- end -}}
+  {{- $groups.Add $year . -}}
+{{- end -}}
+
+{{- $out := "" -}}
+{{- range sort $years "value" "desc" -}}
+  {{- $out = printf `%s<h2 id="year-%s">%s</h2><div class="pub-year">%s</div>` $out . . ($groups.Get .) -}}
+{{- end -}}
+{{- $html = $out -}}
+
+{{- with .Get "me" -}}
+  {{- $html = $html | replaceRE (printf `(%s)` .) `<span class="pub-me">${1}</span>` -}}
+{{- end -}}
+
+{{- range $key, $type := $types.Values -}}
+  {{- $label := index $typeLabels $type | default $type -}}  {{- $tag := printf `<span class="pub-type">[%s]</span>` $label -}}
+  {{- $html = $html | replaceRE
+        (printf `(<div id="ref-%s"[^>]*>)` $key)
+        (printf `$1%s` $tag) -}}
+{{- end -}}
+
+{{- range readDir $pdfDir -}}
+  {{- $key := strings.TrimSuffix ".pdf" .Name -}}
+  {{- $btn := printf `<a href="%s/%s.pdf" target="_blank" role="button" class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700">PDF</a>` $pdfURL $key -}}
+  {{- $html = $html | replaceRE
+        (printf `(?s)(<div id="ref-%s"[^>]*>.*?)(</div>)` $key)
+        (printf `$1<div class="pub-links">%s</div>$2` $btn) -}}
+{{- end -}}
+
+{{ $html | safeHTML }}
