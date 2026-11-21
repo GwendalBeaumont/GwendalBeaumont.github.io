@@ -17,9 +17,9 @@ title = "Gwendal Beaumont"
   email = "contact@gwendalbeaumont.fr"
   image = "img/author.jpg"
   imageQuality = 90
-  headline = "PhD student in software engineering"
+  headline = "PhD in Computer Science"
   links = [
-    { email = "mailto:contact@gwendalbeaumont.fr" },
+    { email = "mailto:research@gwendalbeaumont.fr" },
     { github = "https://github.com/GwendalBeaumont" },
     { google-scholar = "https://scholar.google.com/citations?user=-PaQiHgAAAAJ" },
     { hal = "https://cv.hal.science/gwendal-beaumont" },
